@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D myRigidbody;
     private bool playerMoving;
     public Vector2 lastMove;
-
     private static bool playerExists;
 
     private bool attacking;
