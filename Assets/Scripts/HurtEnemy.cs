@@ -28,5 +28,6 @@ public class HurtEnemy : MonoBehaviour {
             var clone = (GameObject) Instantiate(damageNumber, hitPoint.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<FloatingNumbers>().damageNumber = damageToGive;
         }
+
     }
 }
