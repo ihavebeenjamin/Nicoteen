@@ -16,6 +16,7 @@ public class EnemyHealthManager : MonoBehaviour {
         CurrentHealth = MaxHealth;
         thePlayerStats = FindObjectOfType<PlayerStats>();
 
+       
     }
 
     // Update is called once per frame

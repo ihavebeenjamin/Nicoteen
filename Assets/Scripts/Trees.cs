@@ -11,7 +11,7 @@ public class Trees : MonoBehaviour {
     public bool dead;
 
     
-
+    
     private PlayerStats playerStats;
     private TreeSpawner TreeSpawner;
 
@@ -32,7 +32,9 @@ public class Trees : MonoBehaviour {
         if (CurrentHealth <= 0)
         {
             playerStats.AddLumber(Random.Range(1, 3));
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
+            Destroy(gameObject);
+           
             TreeSpawner.currentTrees -= 1;
 
         }

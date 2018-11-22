@@ -17,22 +17,43 @@ public class TreeSpawner : MonoBehaviour {
 
     private Vector2 location;
     public GameObject objectToSpawn;
+    public GameObject lastTreeSpawned;
+
+    private float startTime = 5;
+    public float currentTime;
+
+    public GameObject[] treeArray;
+
+  
 
     // Use this for initialization
     void Start () {
         
         Spawner();
+        currentTime = startTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(currentTrees <= maxTrees)
+        if(currentTrees <= maxTrees-5)
         {
-            RandX = Random.Range(-xRange, xRange);
-            RandY = Random.Range(-yRange, yRange);
-            location = new Vector2(RandX, RandY);
-            Instantiate(objectToSpawn, location, transform.rotation);
-            currentTrees++;
+            for (int i = 0; i <= maxTrees; i++)
+            {
+                RandX = Random.Range(-xRange, xRange);
+                RandY = Random.Range(-yRange, yRange);
+                location = new Vector2(RandX, RandY);
+                if (treeArray[i] == null)
+                {
+                        treeArray[i] = Instantiate(objectToSpawn, location, transform.rotation);
+                        currentTrees++;
+             
+                }
+            }
+
+                
+            
+
+
         }
 
     }
@@ -44,7 +65,8 @@ public class TreeSpawner : MonoBehaviour {
                 RandX = Random.Range(-xRange, xRange);
                 RandY = Random.Range(-yRange, yRange);
                 location = new Vector2(RandX, RandY);
-                Instantiate(objectToSpawn, location, transform.rotation);
+               lastTreeSpawned = Instantiate(objectToSpawn, location, transform.rotation);
+                treeArray[currentTrees] = lastTreeSpawned;
                 
             
         }
@@ -52,6 +74,6 @@ public class TreeSpawner : MonoBehaviour {
     }
     IEnumerator SpawnTree()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(5f);
         }
 }
