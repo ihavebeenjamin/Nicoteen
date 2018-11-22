@@ -48,13 +48,12 @@ public class Wisp : MonoBehaviour {
             tree = treeSpawner.treeArray[i];
             treePosition = tree.transform.position;
             Dist = Vector3.Distance(treePosition, transform.position);
-            Debug.Log(Dist);
-            if (traveling == false)
-            {
+           
+            
 
                 if (Dist <= distanceTolerance)
                 {
-                    traveling = true;
+                Debug.Log("GotOne");
                     if (harvesting == true)
                     {
                         transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
@@ -67,7 +66,7 @@ public class Wisp : MonoBehaviour {
                     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
 
                 }
-            }
+            
         }
        
         }
