@@ -13,65 +13,81 @@ public class Wisp : MonoBehaviour {
     private GameObject tree;
     private Vector2 moveDirection;
     private Vector3 treePosition;
-    
+    private Vector3 lumberTentPosition;
+
     private Vector3 wispTravelTo;
     private float[] distArray;
     public float Dist;
     public float distanceTolerance;
-    
+
 
     private TreeSpawner treeSpawner;
-    
-    
-	// Use this for initialization
-	void Start () {
+    private lumberTent lumberTent;
+    private PlayerStats playerStats;
+
+    private Trees Trees;
+
+    // Use this for initialization
+    void Start() {
         counter = 0;
-        treeSpawner= FindObjectOfType<TreeSpawner>();
+        treeSpawner = FindObjectOfType<TreeSpawner>();
+        lumberTent = FindObjectOfType<lumberTent>();
+        playerStats = FindObjectOfType<PlayerStats>();
+        lumberTentPosition = lumberTent.transform.position;
+        Trees = FindObjectOfType<Trees>();
+        harvesting = true;
+
+
     }
 
     // Update is called once per frame
     void Update() {
-        while(traveling == false && harvesting == false && counter<=70)
+
+        for (int i = 0; i < treeSpawner.treeArray.Length; i++)
         {
-            tree = treeSpawner.treeArray[counter];
+            tree = treeSpawner.treeArray[i];
             treePosition = tree.transform.position;
             Dist = Vector3.Distance(treePosition, transform.position);
             Debug.Log(Dist);
-            if (Dist <= distanceTolerance)
+            if (traveling == false)
             {
-                transform.position = tree.transform.position;
-                counter = 0;
 
+                if (Dist <= distanceTolerance)
+                {
+                    traveling = true;
+                    if (harvesting == true)
+                    {
+                        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
+
+                    }
+                    //  transform.position = tree.transform.position;
+                }
+                if (harvesting == false)
+                {
+                    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
+
+                }
             }
-            else { counter++; }
+        }
+       
         }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Trees")
+        {
+            harvesting = false;
+            Destroy(other.gameObject);
+        }
 
+        if (other.gameObject.tag == "lumberTent")
+        {
+            harvesting = true;
+            playerStats.AddLumber(2);
+            traveling = false;
+        }
     }
+}
 
-        /*   for (int i = 0; i < treeSpawner.treeArray.Length; i++)
-           {
-               tree = treeSpawner.treeArray[i];
-
-               treePosition = tree.transform.position;
-               Dist = Vector3.Distance(treePosition, transform.position);
-               Debug.Log(Dist);
-               if (Dist <= distanceTolerance)
-               {
-                   transform.position = tree.transform.position;
-               }
-           }
-           */
-
-
-
-    
-
-
-
-
-
-    }
-
- 
+       
 

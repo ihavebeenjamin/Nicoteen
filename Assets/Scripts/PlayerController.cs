@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     private bool attacking;
     public float attackTime;
     private float attackTimeCounter;
-
+    
     public string startPoint;
     // Use this for initialization
     void Start () {

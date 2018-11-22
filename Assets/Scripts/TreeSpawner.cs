@@ -35,8 +35,7 @@ public class TreeSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(currentTrees <= maxTrees-5)
-        {
+        
             for (int i = 0; i <= maxTrees; i++)
             {
                 RandX = Random.Range(-xRange, xRange);
@@ -48,7 +47,7 @@ public class TreeSpawner : MonoBehaviour {
                         currentTrees++;
              
                 }
-            }
+            
 
                 
             
