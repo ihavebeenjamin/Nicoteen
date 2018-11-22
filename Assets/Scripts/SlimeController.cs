@@ -73,6 +73,7 @@ public class SlimeController : MonoBehaviour
             {
                 SceneManager.LoadScene("main");
                 thePlayer.SetActive(true);
+               
             }
         }
     }
