@@ -49,24 +49,20 @@ public class Wisp : MonoBehaviour {
             treePosition = tree.transform.position;
             Dist = Vector3.Distance(treePosition, transform.position);
             Debug.Log(Dist);
-            if (traveling == false)
+               
+            if (Dist <= distanceTolerance)
             {
-
-                if (Dist <= distanceTolerance)
+             if(harvesting == true)
                 {
-                    traveling = true;
-                    if (harvesting == true)
-                    {
-                        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
-
-                    }
-                    //  transform.position = tree.transform.position;
+                    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
+                 
                 }
-                if (harvesting == false)
-                {
-                    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
-
-                }
+              //  transform.position = tree.transform.position;
+            }
+            if (harvesting == false)
+            {
+                transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
+               
             }
         }
        
@@ -84,7 +80,6 @@ public class Wisp : MonoBehaviour {
         {
             harvesting = true;
             playerStats.AddLumber(2);
-            traveling = false;
         }
     }
 }
