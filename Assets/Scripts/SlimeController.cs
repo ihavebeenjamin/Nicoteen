@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SlimeController : MonoBehaviour
 {
     public float moveSpeed;
