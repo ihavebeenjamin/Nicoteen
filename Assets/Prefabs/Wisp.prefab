@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599286127029584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.72, z: -0.16758929}
+  m_LocalPosition: {x: -4.49, y: 0.18, z: -0.16758929}
   m_LocalScale: {x: 0.425, y: 0.475, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,10 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  harvesting: 0
-  traveling: 0
+  harvesting: 1
+  traveling: 1
+  carrying: 0
   Dist: 0
-  distanceTolerance: 20
+  distanceTolerance: 40
 --- !u!212 &212380089742960594
 SpriteRenderer:
   m_ObjectHideFlags: 1
