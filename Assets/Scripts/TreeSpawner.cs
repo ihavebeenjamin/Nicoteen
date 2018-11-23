@@ -59,7 +59,7 @@ public class TreeSpawner : MonoBehaviour {
 
     public void Spawner()
     {
-            for (currentTrees = 0; currentTrees <= maxTrees; currentTrees++)
+            for (currentTrees = 0; currentTrees < maxTrees; currentTrees++)
             {
                 RandX = Random.Range(-xRange, xRange);
                 RandY = Random.Range(-yRange, yRange);

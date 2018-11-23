@@ -8,6 +8,7 @@ public class Wisp : MonoBehaviour {
     public float moveSpeed;
     public bool harvesting;
     public bool traveling;
+    public bool carrying;
     private int counter;
 
     private GameObject tree;
@@ -35,55 +36,80 @@ public class Wisp : MonoBehaviour {
         playerStats = FindObjectOfType<PlayerStats>();
         lumberTentPosition = lumberTent.transform.position;
         Trees = FindObjectOfType<Trees>();
-        harvesting = true;
+        harvesting = false;
 
 
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
-        for (int i = 0; i < treeSpawner.treeArray.Length; i++)
+        if (harvesting == false && carrying == false)
         {
-            tree = treeSpawner.treeArray[i];
-            treePosition = tree.transform.position;
-            Dist = Vector3.Distance(treePosition, transform.position);
-           
+
+            for (int i = 0; i < treeSpawner.treeArray.Length; i++)
+            {
+                tree = treeSpawner.treeArray[i];
+                
+                    Debug.Log(i);                   
+                        treePosition = tree.transform.position;
+                        Dist = Vector3.Distance(treePosition, transform.position);
+
+
+
+                        if (Dist <= distanceTolerance)
+                        {
+                            Debug.Log("GotOne");
+                            harvesting = true;
+                            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
+                             i = 100;
+
+                            //  transform.position = tree.transform.position;
+                        }
+                        if (harvesting == false)
+                        {
+                            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
+                            
+                        }
+                    
+                    counter = i;
+                
+            }
+        }
+        if (harvesting == true && carrying == false )
+        {
+
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
+            Debug.Log("Moving to Tree");
+            //At this point tree.transform.position is null?
             
-
-                if (Dist <= distanceTolerance)
-                {
-                Debug.Log("GotOne");
-                    if (harvesting == true)
-                    {
-                        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
-
-                    }
-                    //  transform.position = tree.transform.position;
-                }
-                if (harvesting == false)
-                {
-                    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
-
-                }
             
         }
-       
+        if (carrying== true)
+        {
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
+            Debug.Log("Going to Tent");
         }
-
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Trees")
         {
             harvesting = false;
+            // tree.transform.position = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
             Destroy(other.gameObject);
+
+            carrying = true;
+            Debug.Log("Carrying");
         }
 
         if (other.gameObject.tag == "lumberTent")
         {
-            harvesting = true;
+            harvesting = false;
             playerStats.AddLumber(2);
-            traveling = false;
+            carrying = false;
+           
         }
     }
 }
