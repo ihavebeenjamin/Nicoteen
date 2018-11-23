@@ -11,6 +11,9 @@ public class PlayerStats : MonoBehaviour {
     public int[] toLevelUp;
 
     public int currentLumber;
+
+    public int money;
+    
     
 	// Use this for initialization
 	void Start () {
@@ -34,5 +37,10 @@ public class PlayerStats : MonoBehaviour {
     {
         currentLumber += lumberToAdd;
         currentExp += 20;
+    }
+
+    public void AddMoney(int moneyToAdd)
+    {
+        money += moneyToAdd;
     }
 }

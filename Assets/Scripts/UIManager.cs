@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
     public Text levelText;
 
     public Text LumberText;
+    public Text MoneyText;
 
     private static bool HealthbarExists;
 	// Use this for initialization
@@ -35,6 +36,8 @@ public class UIManager : MonoBehaviour {
         levelText.text = "LVL: " + thePlayerStats.currentLevel;
 
         LumberText.text = "" + thePlayerStats.currentLumber;
+        MoneyText.text = "" + thePlayerStats.money;
+        
  		
 	}
 }

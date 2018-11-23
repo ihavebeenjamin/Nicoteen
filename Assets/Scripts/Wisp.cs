@@ -54,7 +54,7 @@ public class Wisp : MonoBehaviour
             {
                 tree = treeSpawner.treeArray[i];
 
-                Debug.Log(i);
+               // Debug.Log(i);
                 treePosition = tree.transform.position;
                 Dist = Vector3.Distance(treePosition, transform.position);
 
@@ -62,7 +62,7 @@ public class Wisp : MonoBehaviour
 
                 if (Dist <= distanceTolerance)
                 {
-                    Debug.Log("GotOne");
+                   // Debug.Log("GotOne");
                     harvesting = true;
                     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
                     i = 100;
@@ -83,7 +83,7 @@ public class Wisp : MonoBehaviour
         {
 
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
-            Debug.Log("Moving to Tree");
+           // Debug.Log("Moving to Tree");
             //At this point tree.transform.position is null?
 
 
@@ -91,7 +91,7 @@ public class Wisp : MonoBehaviour
         if (carrying == true)
         {
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
-            Debug.Log("Going to Tent");
+            //Debug.Log("Going to Tent");
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -103,7 +103,7 @@ public class Wisp : MonoBehaviour
             Destroy(other.gameObject);
 
             carrying = true;
-            Debug.Log("Carrying");
+           // Debug.Log("Carrying");
         }
 
         if (other.gameObject.tag == "lumberTent")

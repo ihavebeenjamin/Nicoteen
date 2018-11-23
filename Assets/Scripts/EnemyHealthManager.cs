@@ -6,7 +6,7 @@ public class EnemyHealthManager : MonoBehaviour {
 
     public int MaxHealth;
     public int CurrentHealth;
-
+    public GameObject coin;
     private PlayerStats thePlayerStats;
 
     public int expToGive;
@@ -24,6 +24,7 @@ public class EnemyHealthManager : MonoBehaviour {
     {
         if (CurrentHealth <= 0)
         {
+           // Instantiate(coin, transform.position, transform.rotation);
             Destroy(gameObject);
 
             thePlayerStats.AddExperience(expToGive);
