@@ -24,7 +24,7 @@ public class EnemyHealthManager : MonoBehaviour {
     {
         if (CurrentHealth <= 0)
         {
-           // Instantiate(coin, transform.position, transform.rotation);
+           Instantiate(coin, transform.position, transform.rotation);
             Destroy(gameObject);
 
             thePlayerStats.AddExperience(expToGive);

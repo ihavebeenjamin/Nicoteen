@@ -9,7 +9,7 @@ public class Trees : MonoBehaviour {
     public float startTime;
     public float currentTime;
     public bool dead;
-
+    public bool workerSelected; 
     
     
     private PlayerStats playerStats;
