@@ -26,7 +26,7 @@ public class TreeSpawner : MonoBehaviour {
 
   
 
-    // Use this for initialization
+    // Use this for initialization test
     void Start () {
         
         Spawner();
