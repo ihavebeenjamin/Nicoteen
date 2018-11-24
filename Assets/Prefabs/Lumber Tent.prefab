@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114610206704556884}
   - component: {fileID: 61974001376624824}
   m_Layer: 0
-  m_Name: lumberTent
+  m_Name: Lumber Tent
   m_TagString: lumberTent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
