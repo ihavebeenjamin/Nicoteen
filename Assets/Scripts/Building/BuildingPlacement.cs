@@ -13,4 +13,8 @@ public class BuildingPlacement : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void SetItem(GameObject b)
+    {
+        Debug.Log(b.name);
+    }
 }
