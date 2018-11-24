@@ -26,10 +26,10 @@ public class Wisp : MonoBehaviour
     private TreeSpawner treeSpawner;
     private lumberTent lumberTent;
     private PlayerStats playerStats;
-    
+
 
     private Trees treeScript;
-       // Use this for initialization
+    // Use this for initialization
     void Start()
     {
         counter = 0;
@@ -54,7 +54,7 @@ public class Wisp : MonoBehaviour
             {
                 tree = treeSpawner.treeArray[i];
 
-               // Debug.Log(i);
+                // Debug.Log(i);
                 treePosition = tree.transform.position;
                 Dist = Vector3.Distance(treePosition, transform.position);
 
@@ -62,11 +62,11 @@ public class Wisp : MonoBehaviour
 
                 if (Dist <= distanceTolerance && treeSpawner.treeArray[i].tag != "SelectedTree")
                 {
-                   // Debug.Log("GotOne");
+                    // Debug.Log("GotOne");
 
                     harvesting = true;
                     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), tree.transform.position, moveSpeed * Time.deltaTime);
-                   
+
                     wispTravelTo = treePosition;
                     treeSpawner.treeArray[i].transform.gameObject.tag = "SelectedTree";
                     i = 100;
@@ -95,13 +95,13 @@ public class Wisp : MonoBehaviour
                 harvesting = false;
                 carrying = true;
                 Destroy(tree);
-                
+
             }
 
         }
         if (carrying == true)
         {
-           transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), lumberTentPosition, moveSpeed * Time.deltaTime);
             //Debug.Log("Going to Tent");
             if (Vector3.Distance(lumberTentPosition, transform.position) <= 1)
             {
@@ -114,25 +114,21 @@ public class Wisp : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // if (other.gameObject.tag == "Trees")
-       // {
+        // {
         //    harvesting = false;
-            // tree.transform.position = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
+        // tree.transform.position = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
         //    Destroy(other.gameObject);
 
         //    carrying = true;
-           // Debug.Log("Carrying");
-       // }
+        // Debug.Log("Carrying");
+        // }
 
         //if (other.gameObject.tag == "lumberTent")
-       // {
-         //   harvesting = false;
-         //   playerStats.AddLumber(2);
-          //  carrying = false;
+        // {
+        //   harvesting = false;
+        //   playerStats.AddLumber(2);
+        //  carrying = false;
 
-       // }
+        // }
     }
 }
-
-
-
-
