@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
-
+public class PlaceableBuilding : MonoBehaviour {
+    [HideInInspector]
+    public List<Collider> colliders = new List<Collider>();
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +15,9 @@ public class NewBehaviourScript : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnTriggerEnter(Collider c) {
+    }
+    
+        
+    }
 }
