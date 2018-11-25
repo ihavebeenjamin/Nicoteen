@@ -8,6 +8,7 @@ TagManager:
   - Trees
   - lumberTent
   - SelectedTree
+  - Building
   layers:
   - Default
   - TransparentFX
