@@ -76,7 +76,7 @@ public class GoblinMovement : MonoBehaviour
                         anim.SetFloat("yMove", 0);
                         anim.SetFloat("xLast", -1);
                         anim.SetFloat("yLast", 0);
-                        Debug.Log("Moving Left");
+                      
                         moveDirection = new Vector3(-1 * moveSpeed, 0, 0f);
                         
                         break;
@@ -86,7 +86,7 @@ public class GoblinMovement : MonoBehaviour
                         anim.SetFloat("xMove", 1);
                         anim.SetFloat("yLast", 0);
                         anim.SetFloat("xLast", 1);
-                        Debug.Log("Moving Right");
+                        
                         moveDirection = new Vector3(1 * moveSpeed, 0, 0f);
                        
                         break;
@@ -96,7 +96,7 @@ public class GoblinMovement : MonoBehaviour
                         anim.SetFloat("yMove", 1);
                         anim.SetFloat("xLast", 0);
                         anim.SetFloat("yLast", 1);
-                        Debug.Log("Moving up");
+                        
                         moveDirection = new Vector3(0, 1*moveSpeed, 0f);
                        
                         break;
@@ -106,9 +106,9 @@ public class GoblinMovement : MonoBehaviour
                         anim.SetFloat("xLast", 0);
                         anim.SetFloat("yLast", -1);
                         moveDirection = new Vector3(0, -1*moveSpeed, 0f);
-                        Debug.Log("Moving Down");
+                        
 
-                        Debug.Log("Movingup");
+                        
                         break;
                     default:
                         anim.SetBool("Moving", false);
