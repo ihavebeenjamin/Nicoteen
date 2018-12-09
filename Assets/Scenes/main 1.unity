@@ -1239,6 +1239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afb063d3108edc4e82dba34a9decbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingsMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &822900531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - {fileID: 1344386357664814, guid: 07ca9387b9f655f47944b37b08ea94c2, type: 2}
+  - {fileID: 1967695539492444, guid: 07ca9387b9f655f47944b37b08ea94c2, type: 2}
 --- !u!4 &822900532
 Transform:
   m_ObjectHideFlags: 0

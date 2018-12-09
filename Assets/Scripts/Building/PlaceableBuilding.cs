@@ -10,7 +10,7 @@ public class PlaceableBuilding : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         collideCounter = 0;
-        Debug.Log(collideCounter);
+        
     }
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class PlaceableBuilding : MonoBehaviour {
             colliders.Add(c);
             collideCounter++;
 
-            Debug.Log(collideCounter);
+           
         }
     }
 
@@ -31,7 +31,7 @@ public class PlaceableBuilding : MonoBehaviour {
     {
         if (c.tag == "Building")
         {
-            Debug.Log(collideCounter);
+            
             colliders.Remove(c);
             collideCounter--;
 
