@@ -22,7 +22,7 @@ public class PlaceableBuilding : MonoBehaviour {
         {
             colliders.Add(c);
             collideCounter++;
-            Debug.Log("Collide");
+            //Debug.Log("Collide");
            
         }
     }

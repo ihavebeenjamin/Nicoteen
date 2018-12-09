@@ -19,7 +19,7 @@ public class BuildingPlacement : MonoBehaviour {
 	void Update () {
         Vector3 mm = Input.mousePosition;
         mm = new Vector3(mm.x, mm.y, transform.position.y);
-        Vector3 p = Camera.main.ScreenToWorldPoint(mm);
+        //Vector3 p = Camera.main.ScreenToWorldPoint(mm);
 		if (selectedBuild != null && !hasPlaced)
        {
            Vector2 m = Input.mousePosition;

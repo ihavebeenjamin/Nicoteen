@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour {
 
-    public GameObject[] buildings;
+    public GameObject building;
     private BuildingPlacement buildingPlacement;
-	// Use this for initialization
-	void Start () {
-        buildingPlacement = GetComponent<BuildingPlacement>();
-	}
+	//// Use this for initialization
+	//void Start () {
+ //       buildingPlacement = GetComponent<BuildingPlacement>();
+	//}
 	
-	// Update is called once per frame
-	void Update () {
+	//// Update is called once per frame
+	//void Update () {
 		
-	}
-    void OnGUI() 
+	//}
+    public void  SelectBuilding () 
     {
-        for(int i = 0; i <buildings.Length; i++)
-        {
-            if (GUI.Button(new Rect(Screen.width - 120 , Screen.height/20 +Screen.height/12 *i, 100, 30), buildings[i].name))
-            {
-                buildingPlacement.SetItem(buildings[i]);
-            }
-        }
+      //  Debug.Log(building);
+      buildingPlacement.SetItem(building);
+                   
     }
 }
 
