@@ -37,6 +37,7 @@ public class BuildingPlacement : MonoBehaviour {
         }
         else
         {
+            // Left Click a building
             if (Input.GetMouseButtonDown(0))
             {
                 
@@ -45,8 +46,9 @@ public class BuildingPlacement : MonoBehaviour {
 
                 if (hit)
                 {
+                    // Displays name of building
                     Debug.Log(hit.transform.name);
-                    Debug.Log("Got it!");
+                    
                 }
             }
         }
