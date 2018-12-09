@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaceableBuilding : MonoBehaviour {
     // [HideInInspector]
-    public List<Collider> colliders = new List<Collider>();
+    public List<Collider2D> colliders = new List<Collider2D>();
     public float collideCounter;
     
 	// Use this for initialization
@@ -17,7 +17,7 @@ public class PlaceableBuilding : MonoBehaviour {
 	void Update () {
 		
 	}
-    void OnTriggerEnter(Collider c) {
+    void OnTriggerEnter2D(Collider2D c) {
         if (c.tag == "Building")
         {
             colliders.Add(c);
@@ -27,7 +27,7 @@ public class PlaceableBuilding : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit(Collider c)
+    void OnTriggerExit2D(Collider2D c)
     {
         if (c.tag == "Building")
         {
